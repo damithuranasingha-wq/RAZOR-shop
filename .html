@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RAZOR - Old Money Style</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Raleway:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+      background: url('https://i.postimg.cc/cLXL8qs0/Free-White-Shading-Classic-Background-Images-Pattern-Photo-Background-PNG-and-Vectors.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #2c2c2c;
+    }
+
+    header {
+      text-align: center;
+      padding: 80px 20px 60px;
+      background: rgba(255, 253, 249, 0.9);
+      border-bottom: 1px solid #e4e2dd;
+      position: relative;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 3px;
+      background: linear-gradient(90deg, #c0a062, #e0c78a);
+      border-radius: 2px;
+    }
+
+    header img {
+      width: 130px;
+      height: auto;
+      display: block;
+      margin: 0 auto 15px;
+      border-radius: 50%;
+      padding: 10px;
+      border: 2px solid #c0a062;
+      transition: transform 0.5s;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #1f1f1f;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #7a7a7a;
+      margin-top: 10px;
+    }
+
+    .products {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 50px;
+      padding: 80px 20px;
+      transition: opacity 0.5s;
+    }
+
+    .product-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(192, 160, 98, 0.1);
+      width: 300px;
+      text-align: center;
+      padding: 25px;
+      cursor: pointer;
+      border: 1px solid #e6dcc9;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 12px 28px rgba(192, 160, 98, 0.2);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.5s;
+    }
+
+    .product-card img:hover {
+      transform: scale(1.05);
+    }
+
+    .product-card h3 {
+      margin: 18px 0 6px;
+      font-family: 'Playfair Display', serif;
+      color: #1f1f1f;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #777;
+    }
+
+    .product-detail {
+      display: none;
+      padding: 80px 20px;
+      text-align: center;
+      background: rgba(255, 253, 251, 0.9);
+      min-height: 100vh;
+      border-top: 3px solid #c0a062;
+      opacity: 0;
+      transform: scale(0.95);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .product-detail.show {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .product-detail h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #1f1f1f;
+      margin-bottom: 20px;
+    }
+
+    .product-detail img {
+      width: 400px;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 14px;
+      transition: transform 0.5s;
+    }
+
+    .product-detail img:hover {
+      transform: scale(1.03);
+    }
+
+    .buy-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 36px;
+      background: linear-gradient(45deg, #c0a062, #e0c78a);
+      color: #fff;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: 600;
+      transition: transform 0.3s;
+    }
+
+    .buy-btn:hover {
+      background: linear-gradient(45deg, #a88b55, #c9aa73);
+      transform: scale(1.05);
+    }
+
+    table {
+      margin: 25px auto;
+      border-collapse: collapse;
+      font-size: 1rem;
+      color: #555;
+    }
+
+    table, th, td {
+      border: 1px solid #c0a062;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+
+    th {
+      background: #f5f0e3;
+      color: #1f1f1f;
+    }
+
+    footer {
+      text-align: center;
+      padding: 50px 20px;
+      font-size: 0.9rem;
+      color: #777;
+      background: rgba(249, 248, 246, 0.9);
+      border-top: 1px solid #e4e2dd;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="https://i.postimg.cc/QMb1PXTZ/Whats-App-Image-2025-11-02-at-22-18-32-1e531c61.jpg" alt="RAZOR Brand Logo">
+    <h1>RAZOR</h1>
+    <p>Old Money Aesthetic | Timeless Luxury</p>
+  </header>
+
+  <section class="products" id="products"></section>
+  <section class="product-detail" id="product-detail"></section>
+
+  <footer>&copy; 2025 RAZOR. All rights reserved.</footer>
+
+  <script>
+    const products = [
+      {id:'polo', name:'RAZOR Polo Shirt', price:'3500 LKR', material:'Cotton Blend', country:'Sri Lanka', img:'https://i.postimg.cc/MZ9rCwSn/razor.jpg', whatsappId:'101'},
+      {id:'linen', name:'RAZOR Linen Shirt', price:'3200 LKR', material:'Italian Linen', country:'Italy', img:'https://i.postimg.cc/Qx4gNN4m/Shop-Stylish-Men-s-Polo-T-Shirts-Perfect-Fit-Perfect-Look.jpg', whatsappId:'102'},
+      {id:'blazer', name:'RAZOR Classic Blazer', price:'5600 LKR', material:'Wool Blend', country:'UK', img:'https://i.postimg.cc/CMDkTHDJ/Manfinity-Casual-Cool-Men-s-Casual-Button-Front-Drop-Shoulder-Overcoat-For-Autumn.jpg', whatsappId:'103'}
+    ];
+
+    const productsContainer = document.getElementById('products');
+    const detailContainer = document.getElementById('product-detail');
+
+    products.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'product-card';
+      card.addEventListener('click', () => showDetail(product));
+      card.innerHTML = `<img src='${product.img}' alt='${product.name}'><h3>${product.name}</h3><p>Classic luxury style</p>`;
+      productsContainer.appendChild(card);
+    });
+
+    function showDetail(product) {
+      detailContainer.innerHTML = `
+        <h2>${product.name}</h2>
+        <img src='${product.img}' alt='${product.name}'>
+        <p style='max-width:600px;margin:20px auto;color:#555;font-size:1rem;'>Detailed description for ${product.name}.</p>
+        <p><strong>Price:</strong> ${product.price}</p>
+        <table>
+          <tr><th>Name</th><th>Material</th><th>Country</th></tr>
+          <tr><td>${product.name}</td><td>${product.material}</td><td>${product.country}</td></tr>
+        </table>
+        <a class='buy-btn' href='https://wa.me/94701451612?text=Hi%20I%27m%20interested%20in%20Product%20ID%20${product.whatsappId}%20-%20${encodeURIComponent(product.name)}' target='_blank'>Buy on WhatsApp</a>
+        <div style='margin-top:20px;'><a href='#' id='backBtn' style='text-decoration:underline;color:#555;'>Back to Products</a></div>
+      `;
+      productsContainer.style.display = 'none';
+      detailContainer.style.display = 'block';
+      setTimeout(()=>{detailContainer.classList.add('show');}, 50);
+
+      document.getElementById('backBtn').addEventListener('click', () => {
+        detailContainer.classList.remove('show');
+        setTimeout(()=>{
+          detailContainer.style.display='none';
+          productsContainer.style.display='flex';
+          detailContainer.innerHTML='';
+        }, 500);
+      });
+    }
+  </script>
+</body>
+</html>
